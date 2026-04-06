@@ -10,7 +10,7 @@ export const siteData = {
     lang: "en-US",
     ogLang: "en_US",
     langSchema: "en",
-    copyright: `Pixel Patina - ${currentYear} | All Rights Reserved`,
+    copyright: `${currentYear} | All Rights Reserved`,
     url: "https://pixelpatina.com",
     cmsURL: "#",
     graphQL: "#"
@@ -42,5 +42,5 @@ export const mainMenu: MenuItem[] = [
 ]
 // Contact Info
 export const contactInfo = {
-    email: "info@ntiling.ca"
+    email: "hello@pixelpatina.com"
 }

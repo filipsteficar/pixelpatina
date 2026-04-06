@@ -1,0 +1,13 @@
+---
+import { siteData, mainMenu } from "@/utils/global";
+---
+<header class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base)*var(--vt323-scale))]">
+    <nav class="flex flex-row flex-wrap justify-between items-center mx-auto p-fl-base container">
+        <a href="/" class="hover:text-cinnamon-300 uppercase">Pixel <span class="text-rust-400">Patina</span></a>
+        <ul class="flex flex-row flex-wrap gap-fl-base">
+            {mainMenu?.map((item) => (
+            <li class="hover:text-cinnamon-300 uppercase"><a href={item.href || "/"}>{item.label || "Unknown"}</a></li>
+            ))}
+        </ul>
+    </nav>
+</header>
