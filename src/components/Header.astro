@@ -1,11 +1,15 @@
 ---
+// Data
 import { mainMenu } from "@/utils/global";
+// Icons
 import { Menu as Hamburger, X } from "@lucide/astro";
+// Get Current Path
+const currentPath = Astro.url.pathname;
 ---
 <!-- Header -->
 <!-- x-data initializes Alpine's reactive scope on this element. Any child element can now read/write `menuOpen`. -->
 <header 
-x-data="{menuOpen: false}"
+x-data={`{menuOpen: false, currentPath: '${currentPath.replace(/\/$/, "") || "/"}'}`}
 class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base)*var(--vt323-scale))]"
 >
     <!-- Desktop Navigation / Menu -->
@@ -14,7 +18,13 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
         <ul class="hidden md:flex flex-row flex-wrap gap-fl-base">
             {mainMenu?.map((item) => (
             <li class="hover:text-cinnamon-300 uppercase">
-                <a href={item.href || "/"}>{item.label || "Unknown"}</a>
+                <a
+                :class="{ 'text-rust-500': currentPath === $el.dataset.href }"
+                data-href={item.href}
+                href={item.href || "/"}
+                >
+                    {item.label || "Unknown"}
+                </a>
             </li>
             ))}
         </ul>
@@ -59,7 +69,12 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
             <ul class="flex flex-col gap-fl-base">
                 {mainMenu?.map((item) => (
                 <li class="" role="none">
-                    <a role="menuitem" class="block bg-isabelline-900/50 hover:bg-isabelline-900 focus:bg-isabelline-900 p-fl-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-isabelline-500 hover:text-cinnamon-300 uppercase transition-all duration-250 ease-in-out" href={item.href || "/"}>{item.label || "Unknown"}</a>
+                    <a 
+                    role="menuitem"
+                    class="block bg-isabelline-900/50 hover:bg-isabelline-900 focus:bg-isabelline-900 p-fl-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-isabelline-500 hover:text-cinnamon-300 uppercase transition-all duration-250 ease-in-out"
+                    :class="{ 'text-rust-500': currentPath === $el.dataset.href }"
+                    data-href={item.href}
+                    href={item.href || "/"}>{item.label || "Unknown"}</a>
                 </li>
                 ))}
             </ul>
