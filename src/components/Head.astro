@@ -1,5 +1,8 @@
 ---
+// Data
 import { siteData } from "@/utils/global";
+// Astro View Transitions
+import { ClientRouter } from "astro:transitions";
 ---
 <!-- Meta -->
 <meta charset="UTF-8" />
@@ -28,3 +31,5 @@ as="font"
 type="font/woff"
 crossorigin="anonymous"
 />
+<!-- Astro Client Router // Keep This At The End of Head -->
+<ClientRouter />

@@ -19,7 +19,7 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
             {mainMenu?.map((item) => (
             <li class="hover:text-cinnamon-300 uppercase">
                 <a
-                :class="{ 'text-rust-500': currentPath === $el.dataset.href }"
+                :class="{ 'text-patina-400': currentPath === $el.dataset.href }"
                 data-href={item.href}
                 href={item.href || "/"}
                 >
@@ -68,11 +68,11 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
         <div class="mx-auto p-fl-base container">
             <ul class="flex flex-col gap-fl-base">
                 {mainMenu?.map((item) => (
-                <li class="" role="none">
+                <li class="uppercase" role="none">
                     <a 
                     role="menuitem"
-                    class="block bg-isabelline-900/50 hover:bg-isabelline-900 focus:bg-isabelline-900 p-fl-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-isabelline-500 hover:text-cinnamon-300 uppercase transition-all duration-250 ease-in-out"
-                    :class="{ 'text-rust-500': currentPath === $el.dataset.href }"
+                    class="block bg-isabelline-900/50 hover:bg-isabelline-900 focus:bg-isabelline-900 p-fl-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-isabelline-500 hover:text-cinnamon-300 transition-all duration-250 ease-in-out"
+                    :class="{ 'text-patina-400': currentPath === $el.dataset.href }"
                     data-href={item.href}
                     href={item.href || "/"}>{item.label || "Unknown"}</a>
                 </li>
