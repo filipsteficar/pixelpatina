@@ -72,6 +72,8 @@
     --color-cinnamon-950: oklch(0.261 0.031 74.4);
 
     --vt323-scale: 1.25;
+
+    --ring-color: var(--color-rust-500);
 }
 
 @layer base {
@@ -145,4 +147,11 @@
     font-weight: 300 900;
     font-style: italic;
     font-display: swap;
+}
+
+@layer base {
+    *:focus-visible {
+        outline: 0.2rem solid var(--color-rust-500);
+        outline-offset: 0.2rem;
+    }
 }
