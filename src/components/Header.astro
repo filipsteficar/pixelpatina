@@ -10,7 +10,8 @@ const currentPath = Astro.url.pathname;
 <!-- x-data initializes Alpine's reactive scope on this element. Any child element can now read/write `menuOpen`. -->
 <header 
 x-data={`{menuOpen: false, currentPath: '${currentPath.replace(/\/$/, "") || "/"}'}`}
-class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base)*var(--vt323-scale))]"
+@keydown.escape.window="menuOpen = false"
+class="relative border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base)*var(--vt323-scale))]"
 >
     <!-- Desktop Navigation / Menu -->
     <nav class="flex flex-row flex-wrap justify-between items-center mx-auto p-fl-base container">
@@ -45,7 +46,7 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
                 <Hamburger />
             </span>
             
-            <span x-show="menuOpen" x-transition class="absolute inset-0 flex justify-center items-center">
+            <span x-show="menuOpen" x-transition style="display: none" class="absolute inset-0 flex justify-center items-center">
                 <X />
             </span>
         </span>
@@ -61,7 +62,7 @@ class="border-isabelline-900 border-b-2 font-vt323 text-[calc(var(--text-fl-base
     x-transition:leave="transition ease-in-out duration-250"
     x-transition:leave-start="opacity-100 translate-y-0"
     x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden z-10 flex flex-col border-isabelline-900 border-t-2"
+    class="md:hidden top-full z-10 absolute flex flex-col bg-isabelline-950 border-t-2 border-t-isabelline-900 border-b-4 border-b-rust-400 w-full"
     role="menu"
     aria-label="Mobile navigation menu"
     >
